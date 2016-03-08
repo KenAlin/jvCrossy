@@ -7,7 +7,6 @@ import greenfoot.*;
  */
 public class ElementMobile extends Actor
 {
-    // instance variables - replace the example below with your own
     private int vitesse;
     private int direction;
     private int tick;

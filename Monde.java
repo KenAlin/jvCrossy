@@ -20,7 +20,7 @@ public class Monde extends World
      */
     public Monde()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+        // Create a new world with 10x8 cells with a cell size of 64x64 pixels.
         super(10, 8, 64);
         int idType;
         for (int i=0 ; i<8 ; i++){
@@ -90,13 +90,6 @@ public class Monde extends World
                     }
                 break;
             }
-            /*GreenfootImage cell = new GreenfootImage(50, 50);
-            GreenfootImage img = new GreenfootImage(lignes[i].getType()+".jpg");
-            //GreenfootImage cell = new GreenfootImage("herbe.jpg");
-            cell.drawImage(img, 0, 0);
-            //cell.scale(100, 50);
-            //setImage( img );
-            setBackground(cell);*/
         }
         addObject(personnage, 5,7);
     }
@@ -114,6 +107,10 @@ public class Monde extends World
                     addObject(new Camion(), 0, rngChemin);
                     cooldown[rngChemin] = 55;
                 }
+            }
+            else if (lignes[rngChemin].getClass().getName().equals("Rails") && cooldown[rngChemin] == 0){
+                addObject(new Train(), 0, rngChemin);
+                    cooldown[rngChemin] = 200;
             }
         }
         for (int i = 0 ; i < 8 ; i++) {

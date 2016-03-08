@@ -8,7 +8,6 @@ import java.util.*;
  */
 public class Personnage extends Actor
 {
-    // instance variables - replace the example below with your own
     private int x;
     private int tickMove = 15;
 
@@ -17,7 +16,7 @@ public class Personnage extends Actor
      */
     public Personnage()
     {
-        
+        this.setRotation(270);
     }
     
     public boolean obstacleNear(char c) {
@@ -48,6 +47,11 @@ public class Personnage extends Actor
     public void act() {
         tickMove--;
         if (tickMove < 0) tickMove = 0;
+        
+        if (this.getY() == 0 && Greenfoot.isKeyDown("up") && tickMove < 10) Greenfoot.stop();
+        else if( (getOneIntersectingObject(Eau.class) != null) && getOneIntersectingObject(Nenuphar.class) == null ) {
+            Greenfoot.stop();
+        }
         if (Greenfoot.isKeyDown("left") && tickMove < 10) {
             setRotation(180);
             if (!obstacleNear('l')) {
@@ -76,6 +80,5 @@ public class Personnage extends Actor
                 tickMove = 25;
             }
         }
-        if (this.getY() == 0) Greenfoot.stop();
     }
 }

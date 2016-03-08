@@ -14,12 +14,4 @@ public class Herbe extends Ligne
            this.getCases()[j] = new Case("herbe");
        }
     }
-    /**
-     * Act - do whatever the Herbe wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act() 
-    {
-        // Add your action code here.
-    }    
 }

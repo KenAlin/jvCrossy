@@ -10,10 +10,6 @@ comment3.params=
 comment3.target=Case[]\ getCases()
 comment4.params=y
 comment4.target=void\ setPosY(int)
-comment4.text=public\ String\ getType(){\n\ \ \ \ \ \ \ \ return\ this.type;\n}
 comment5.params=i\ s
 comment5.target=void\ setCase(int,\ java.lang.String)
-comment6.params=
-comment6.target=void\ act()
-comment6.text=public\ void\ setType(String\ t){\n\ \ \ \ \ \ \ \ this.type\ \=\ t;\n}
-numComments=7
+numComments=6
