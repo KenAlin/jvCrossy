@@ -19,8 +19,16 @@ public class Personnage extends Actor
         this.setRotation(270);
     }
     
+    public final Monde getMonde() 
+    {
+        return (Monde)getWorld();
+    }
+    
     public boolean obstacleNear(char c) {
-        Actor voisin;
+        Actor voisin = getOneObjectAtOffset(0, 0, Piece.class);
+        if (voisin != null){
+            getMonde().removeObject(voisin);
+        }
         if (c == 'l') {
             voisin = getOneObjectAtOffset(-1, 0, Arbre.class);
             if (voisin != null) return voisin.getClass().getName().equals("Arbre");
