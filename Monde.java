@@ -12,6 +12,7 @@ public class Monde extends World
     private String[] types = {"herbe", "eau", "route", "rails"};
     private Personnage personnage = new Personnage();
     private int[] cooldown = new int[8];
+    private int niveau = 0;
 
     /**
      * Constructor for objects of class MyWorld.
@@ -21,8 +22,21 @@ public class Monde extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(10, 8, 64);
+        int idType;
         for (int i=0 ; i<8 ; i++){
-            String type = types[Greenfoot.getRandomNumber(4)];
+            int rngType = Greenfoot.getRandomNumber(10);
+            /* Chance des types de route :
+             *  20% eau (id 1)
+             *  50% route (id 2)
+             *  10% rails (id 3)
+             *  20% herbe (id 0)
+             */
+            if (rngType < 2) idType = 1;
+            else if (rngType < 7) idType = 2;
+            else if (rngType < 8) idType = 3;
+            else idType = 0;
+            
+            String type = types[idType];
             if (i==7){
                 type = "herbe";
             }
