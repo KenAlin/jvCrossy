@@ -25,10 +25,7 @@ public class Personnage extends Actor
     }
     
     public boolean obstacleNear(char c) {
-        Actor voisin = getOneObjectAtOffset(0, 0, Piece.class);
-        if (voisin != null){
-            getMonde().removeObject(voisin);
-        }
+        Actor voisin;
         if (c == 'l') {
             voisin = getOneObjectAtOffset(-1, 0, Arbre.class);
             if (voisin != null) return voisin.getClass().getName().equals("Arbre");
@@ -54,6 +51,10 @@ public class Personnage extends Actor
     
     public void act() {
         tickMove--;
+        Actor voisin = getOneObjectAtOffset(0, 0, Piece.class);
+        if (voisin != null){
+            getMonde().removeObject(voisin);
+        }
         if (tickMove < 0) tickMove = 0;
         
         if (this.getY() == 0 && Greenfoot.isKeyDown("up") && tickMove < 10) Greenfoot.stop();

@@ -8,8 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Route extends Ligne
 {
-   public Route(int i){
-       super(i);
+   public Route(){
        for (int j=0 ; j<10;j++){
            this.getCases()[j] = new Case("route");
        }

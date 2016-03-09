@@ -8,8 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Rails extends Ligne
 {
-   public Rails(int i){
-       super(i);
+   public Rails(){
        for (int j=0 ; j<10;j++){
            setCase(j,"rails");
        }

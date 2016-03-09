@@ -9,8 +9,9 @@ public class Train extends ElementMobile
     /**
      * Constructor for objects of class Train
      */
-    public Train()
+    public Train(String sens)
     {
+        super(sens);
         setVitesse(1);
     }
 

@@ -7,7 +7,6 @@ import greenfoot.*;
  */
 public class Case extends Actor
 {
-    private int posX;
 
     /**
      * Constructor for objects of class Case

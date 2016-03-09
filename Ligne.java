@@ -8,26 +8,31 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Ligne extends Actor
 {
-    private int posY;
+    //Les attributs
     private Case[] cases = new Case[10];
+    private boolean rtl; /* RTL -> right to left */
 
     /**
      * Constructor for objects of class Ligne
      */
-    public Ligne(int y)
-    {
-        setPosY(y*50);
-    }
-    
-    public int getPosY(){
-        return this.posY;
+    public Ligne() {
+        //On definit un sens de circulation aleatoire
+        int rng = Greenfoot.getRandomNumber(2);
+        if (rng == 1){
+            this.rtl = true;
+        }else{
+            this.rtl = false;
+        }
     }
     
     public Case[] getCases(){
         return this.cases;
     }
-    public void setPosY(int y){
-        this.posY = y;
+    
+    public String getSens(){
+        if (this.rtl) return "droite";
+        else return "gauche";
+        //return rtl?"droite":"gauche";
     }
     
     public void setCase(int i, String s){

@@ -8,7 +8,7 @@ import greenfoot.*;
 public class ElementMobile extends Actor
 {
     private int vitesse;
-    private int direction;
+    private int direction = 1;
     private int tick;
     private boolean estMechant = true;
 
@@ -17,6 +17,14 @@ public class ElementMobile extends Actor
      */
     public ElementMobile()
     {
+    }
+    
+    public ElementMobile(String sens)
+    {
+        if (sens.equals("droite")) {
+            this.getImage().mirrorHorizontally();
+            this.direction = -1;
+        }
     }
     
     public void setTick(int t) {
@@ -50,10 +58,10 @@ public class ElementMobile extends Actor
             Greenfoot.stop();
         }
         if (this.getTick() == 0) {
-            if (this.getX() == 9) {
+            if ((this.getX() == 9 && this.direction == 1) || (this.getX() == 0 && this.direction == -1)) {
                 this.destroy();
             }
-            this.move(1);
+            this.move(this.direction);
             this.setTick(this.getVitesse());
         }
         else {

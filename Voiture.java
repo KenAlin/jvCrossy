@@ -6,11 +6,9 @@
  */
 public class Voiture extends ElementMobile 
 {
-    /**
-     * Constructor for objects of class Voiture
-     */
-    public Voiture()
+    public Voiture(String sens)
     {
+        super(sens);
         setVitesse(8);
     }
    

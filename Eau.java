@@ -8,8 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Eau extends Ligne
 {
-   public Eau(int i){
-       super(i);
+   public Eau(){
        for (int j=0 ; j<10;j++){
            this.getCases()[j] = new Case("eau");
        }

@@ -9,8 +9,9 @@ public class Camion extends ElementMobile
     /**
      * Constructor for objects of class Camion
      */
-    public Camion()
+    public Camion(String sens)
     {
+        super(sens);
         setVitesse(11);
     }
 }

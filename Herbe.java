@@ -8,8 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Herbe extends Ligne
 {
-   public Herbe(int i){
-       super(i);
+   public Herbe(){
        for (int j=0 ; j<10;j++){
            this.getCases()[j] = new Case("herbe");
        }
