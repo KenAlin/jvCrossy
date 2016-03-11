@@ -80,6 +80,9 @@ public class Personnage extends Actor
             if (!obstacleNear('u')) {
                 this.move(1);
                 tickMove = 25;
+                if (getMonde().spawnRate>1){
+                    getMonde().spawnRate--;
+                }
             }
         }
         else if (Greenfoot.isKeyDown("down") && tickMove < 10) {

@@ -13,6 +13,7 @@ public class Monde extends World
     private String[] types = {"herbe", "eau", "route", "rails"};
     private Personnage personnage = new Personnage();
     private int[] cooldown = new int[8];
+    public int spawnRate = 10;
     
     //Pour plus tard
     private int niveau = 0;
@@ -105,7 +106,7 @@ public class Monde extends World
     
     public void act(){
         //Une chance sur 10 de faire apparaitre un vehicule
-        int rng = Greenfoot.getRandomNumber(10);
+        int rng = Greenfoot.getRandomNumber(spawnRate);
         if (rng == 0) {
             //On choisit une ligne au hasard
             int rngChemin = Greenfoot.getRandomNumber(8);
@@ -124,18 +125,18 @@ public class Monde extends World
             if (lignes[rngChemin].getClass().getName().equals("Route") && cooldown[rngChemin] == 0){
                 if (Greenfoot.getRandomNumber(10) < 7) {
                     addObject(new Voiture(sens), posX, rngChemin);
-                    cooldown[rngChemin] = 20;
+                    cooldown[rngChemin] = 2*spawnRate+10;
                 }
                 else {
                     addObject(new Camion(sens), posX, rngChemin);
-                    cooldown[rngChemin] = 55;
+                    cooldown[rngChemin] = 6*spawnRate+25;
                 }
             }
             //Si on est sur un chemin de fer on fait apparaitre un train
             //Le train a un grand delai de reapparition car il est tres rapide
             else if (lignes[rngChemin].getClass().getName().equals("Rails") && cooldown[rngChemin] == 0){
                 addObject(new Train(sens), posX, rngChemin);
-                    cooldown[rngChemin] = 200;
+                    cooldown[rngChemin] = 20*spawnRate+100;
             }
         }
         //On diminue le cooldown
